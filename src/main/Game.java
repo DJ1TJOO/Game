@@ -7,7 +7,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-
+/*test*/
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = -6278825781006112087L;
