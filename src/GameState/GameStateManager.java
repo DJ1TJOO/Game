@@ -2,6 +2,8 @@ package GameState;
 
 import GameState.GameStates.MenuState;
 
+import java.awt.*;
+
 public class GameStateManager {
     private static GameState[] gameState;
     private static int currentState;
@@ -16,6 +18,26 @@ public class GameStateManager {
 
         loadState(currentState);
 
+    }
+
+    public void tick(){
+        if (!(gameState[currentState] == null))
+            gameState[currentState].tick();
+    }
+
+    public void render(Graphics2D g){
+        if (!(gameState[currentState] == null))
+            gameState[currentState].render(g);
+    }
+
+    public void keyPressed(int k) {
+        if (!(gameState[currentState] == null))
+            gameState[currentState].keyPressed(k);
+    }
+
+    public void keyReleased(int k) {
+        if (!(gameState[currentState] == null))
+            gameState[currentState].keyReleased(k);
     }
 
     private static void loadState(int state) {
