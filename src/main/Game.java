@@ -1,5 +1,8 @@
 package main;
 
+import netscape.security.PrivilegeManager;
+
+import javax.swing.*;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -8,12 +11,15 @@ import java.awt.image.BufferStrategy;
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = -6278825781006112087L;
-	public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+	public static final int PIX_WIDTH = 1920/2, PXI_HEIGHT = 1080/2;
+	public static int WIDTH, HEIGHT;
 	private Thread thread;
 	private boolean running;
+	private JFrame frame;
 
 	public Game() {
-		new Window(WIDTH, HEIGHT, "Default", this);
+		frame = new JFrame();
+		new Window(PIX_WIDTH, PXI_HEIGHT, "Steven and Thomas", this, frame);
 	}
 
 	public synchronized void start() {
@@ -60,6 +66,11 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	private void tick() {
+
+		WIDTH = frame.getWidth();
+		HEIGHT = frame.getHeight();
+		System.err.println(WIDTH + " | " + HEIGHT);
+
 	}
 
 	private void render() {
