@@ -1,6 +1,7 @@
 package GameState;
 
 import GameState.GameStates.MenuState;
+import GameState.GameStates.World1;
 
 import java.awt.*;
 
@@ -9,6 +10,7 @@ public class GameStateManager {
     private static int currentState;
     public static final int GAMESTATES = 14;
     public static final int MENUSTATE = 0;
+    public static final int WORLD1 = 1;
     private static final GameStateManager GameStateManager = new GameStateManager();
 
     public GameStateManager() {
@@ -43,6 +45,8 @@ public class GameStateManager {
     private static void loadState(int state) {
         if (state == MENUSTATE) {
             gameState[state] = new MenuState(GameStateManager);
+        } else if (state == WORLD1) {
+            gameState[state] = new World1(GameStateManager);
         }
     }
 }
