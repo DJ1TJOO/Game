@@ -9,10 +9,15 @@ import java.util.List;
 
 public class ModuleHandler {
     public static List<Button> buttons = new ArrayList<Button>();
+    private MouseListenerModule mouseListener;
 
     public ModuleHandler(GameStateManager gsm, Game game){
-        game.addMouseListener(new MouseListenerModule(this));
+        game.addMouseListener(mouseListener = new MouseListenerModule(this));
         new KeyListenerModule(gsm);
+    }
+
+    public void tick(){
+        mouseListener.tick();
     }
 
     public void mouseClicked(MouseEvent e) {

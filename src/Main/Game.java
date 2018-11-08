@@ -7,6 +7,7 @@ import Modules.ModuleHandler;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferStrategy;
 
 public class Game extends Canvas implements Runnable {
@@ -16,7 +17,7 @@ public class Game extends Canvas implements Runnable {
 	private JFrame frame;
 	private boolean running;
 
-	public static final int PIX_WIDTH = 955, PXI_HEIGHT = 540;
+	public static final int PIX_WIDTH = 955, PIX_HEIGHT = 540;
 	public static int WIDTH, HEIGHT;
 
 	private GameStateManager gsm;
@@ -26,7 +27,7 @@ public class Game extends Canvas implements Runnable {
 	    handler = new ModuleHandler(gsm, this);
         gsm = new GameStateManager();
 		frame = new JFrame();
-		new Window(PIX_WIDTH, PXI_HEIGHT, "Steven and Thomas", this, frame);
+		new Window(PIX_WIDTH, PIX_HEIGHT, "Steven and Thomas", this, frame);
 	}
 
 	public synchronized void start() {
@@ -77,7 +78,7 @@ public class Game extends Canvas implements Runnable {
 		WIDTH = frame.getWidth();
 		HEIGHT = frame.getHeight();
 		//System.err.println(WIDTH + " | " + HEIGHT);
-
+		handler.tick();
 		gsm.tick();
 
 	}
@@ -90,9 +91,18 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
-		
+		AffineTransform tx = new AffineTransform();
+		tx.concatenate(g.getTransform());
+		float sx = (float)(WIDTH - PIX_WIDTH)/PIX_WIDTH + 1f;
+		float sy = (float)(HEIGHT - PIX_HEIGHT)/PIX_HEIGHT + 1f;
+		/*System.out.println(PIX_WIDTH + " | " + PIX_HEIGHT);
+		System.out.println(WIDTH + " | " + HEIGHT);
+		System.out.println((WIDTH - PIX_WIDTH) + " | " + (HEIGHT - PIX_HEIGHT));
+		System.out.println(sx + " | " + sy);*/
+		tx.scale(sx,sy);
+		g.transform(tx);
 		g.setColor(Color.black);
-		g.fillRect(0, 0, WIDTH, HEIGHT);
+		g.fillRect(-WIDTH, -HEIGHT, WIDTH + WIDTH, HEIGHT + HEIGHT);
 
 		gsm.render(g);
 		

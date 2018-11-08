@@ -1,5 +1,6 @@
 package Modules;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -10,6 +11,11 @@ public class MouseListenerModule implements MouseListener {
 
     public MouseListenerModule(ModuleHandler handler){
         this.handler = handler;
+    }
+
+    public void tick(){
+        mx = (int)MouseInfo.getPointerInfo().getLocation().getX();
+        my = (int)MouseInfo.getPointerInfo().getLocation().getY();
     }
 
     public void mouseClicked(MouseEvent e) {
