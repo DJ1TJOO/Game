@@ -2,14 +2,13 @@ package GameState.GameStates;
 
 import GameState.GameState;
 import GameState.GameStateManager;
-import main.Game;
-import modules.Button;
-import modules.ModuleHandler;
+import Main.Game;
+import Modules.Button;
+import Modules.ModuleHandler;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Handler;
 
 public class MenuState extends GameState {
     List<Button> buttons = new ArrayList<Button>();

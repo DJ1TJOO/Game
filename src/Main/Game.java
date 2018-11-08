@@ -1,11 +1,9 @@
-package main;
+package Main;
 
 
 
 import GameState.GameStateManager;
-import modules.KeyListenerModule;
-import modules.ModuleHandler;
-import modules.MouseListenerModule;
+import Modules.ModuleHandler;
 
 import javax.swing.*;
 import java.awt.*;

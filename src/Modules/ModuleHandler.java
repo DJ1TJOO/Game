@@ -1,7 +1,7 @@
-package modules;
+package Modules;
 
 import GameState.GameStateManager;
-import main.Game;
+import Main.Game;
 
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
