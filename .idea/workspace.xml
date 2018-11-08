@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad9e6e9c-cbc7-47e9-beb9-866d20b2f8ce" name="Default Changelist" comment="GameState Update&#10;Menustate added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Steven En Thomas game/GameState/GameStates/MenuState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Steven En Thomas game/GameState/GameStates/MenuState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Steven En Thomas game/GameState/GameStates/World1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Steven En Thomas game/GameState/GameStates/World1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Steven En Thomas game/main/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Steven En Thomas game/main/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Steven En Thomas game/main/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Steven En Thomas game/main/Window.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Steven En Thomas game/modules/Button.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Steven En Thomas game/modules/Button.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Steven En Thomas game/modules/KeyListenerModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Steven En Thomas game/modules/KeyListenerModule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Steven En Thomas game/modules/ModuleHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Steven En Thomas game/modules/ModuleHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Steven En Thomas game/modules/MouseListenerModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Steven En Thomas game/modules/MouseListenerModule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Steven En Thomas game/modules/RenderModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Steven En Thomas game/modules/RenderModule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameState/GameStates/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameState/GameStates/MenuState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameState/GameStates/World1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameState/GameStates/World1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/ModuleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/ModuleHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/MouseListenerModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/MouseListenerModule.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,13 +41,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="14" />
-          <entry key="java" value="4457" />
+          <entry key="java" value="4803" />
           <entry key="txt" value="77" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4457" />
+          <entry key="JAVA" value="4803" />
           <entry key="PLAIN_TEXT" value="91" />
         </counts>
       </usages-collector>
@@ -80,9 +64,11 @@
         <entry file="file://$PROJECT_DIR$/src/Main/Game.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="97" column="10" selection-start-line="97" selection-start-column="10" selection-end-line="97" selection-end-column="10" />
+              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2542#2543#0" expanded="true" />
+                <element signature="e#2559#2560#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -358,7 +344,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541701954009" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541702991011" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -397,6 +383,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main.Game" />
       <module name="Steven En Thomas game" />
+      <option name="PROGRAM_PARAMETERS" value="-Dsun.awt.noerasebackground=true" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -732,9 +719,11 @@
     <entry file="file://$PROJECT_DIR$/src/Main/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="97" column="10" selection-start-line="97" selection-start-column="10" selection-end-line="97" selection-end-column="10" />
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2542#2543#0" expanded="true" />
+            <element signature="e#2559#2560#0" expanded="true" />
           </folding>
         </state>
       </provider>
