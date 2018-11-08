@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad9e6e9c-cbc7-47e9-beb9-866d20b2f8ce" name="Default Changelist" comment="GameState Update&#10;Menustate added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Steven En Thomas game/GameState/GameStateManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Steven En Thomas game/GameState/GameStateManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Steven En Thomas game/GameState/GameStates/MenuState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Steven En Thomas game/GameState/GameStates/MenuState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Steven En Thomas game/main/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Steven En Thomas game/main/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameState/GameStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameState/GameStateManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameState/GameStates/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameState/GameStates/MenuState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Button.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/MouseListenerModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/MouseListenerModule.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,13 +41,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="14" />
-          <entry key="java" value="2162" />
+          <entry key="java" value="2635" />
           <entry key="txt" value="77" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2162" />
+          <entry key="JAVA" value="2635" />
           <entry key="PLAIN_TEXT" value="91" />
         </counts>
       </usages-collector>
@@ -68,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="28" column="52" lean-forward="true" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+            <state relative-caret-position="341">
+              <caret line="68" column="55" lean-forward="true" selection-start-line="68" selection-start-column="55" selection-end-line="68" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameState/GameStateManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+            <state relative-caret-position="323">
+              <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,26 +130,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameState/GameStates/MenuState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+            <state relative-caret-position="442">
+              <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#267#275#0" expanded="true" />
                 <element signature="e#201#202#0" expanded="true" />
                 <element signature="e#231#232#0" expanded="true" />
-                <element signature="e#294#295#0" expanded="true" />
-                <element signature="e#374#375#0" expanded="true" />
-                <element signature="e#456#457#0" expanded="true" />
-                <element signature="e#488#489#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/modules/Button.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+            <state relative-caret-position="510">
+              <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="29" />
               <folding>
                 <element signature="e#584#585#0" expanded="true" />
                 <element signature="e#608#609#0" expanded="true" />
@@ -166,6 +158,8 @@
                 <element signature="e#882#883#0" expanded="true" />
                 <element signature="e#917#918#0" expanded="true" />
                 <element signature="e#943#944#0" expanded="true" />
+                <element signature="e#1282#1283#0" expanded="true" />
+                <element signature="e#1311#1312#0" expanded="true" />
                 <element signature="e#688#689#0" expanded="true" />
                 <element signature="e#714#715#0" expanded="true" />
                 <element signature="e#745#746#0" expanded="true" />
@@ -176,16 +170,18 @@
                 <element signature="e#1031#1032#0" expanded="true" />
                 <element signature="e#1242#1243#0" expanded="true" />
                 <element signature="e#1274#1275#0" expanded="true" />
+                <element signature="e#1685#1686#0" expanded="true" />
+                <element signature="e#1721#1722#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/RenderModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+            <state relative-caret-position="272">
+              <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -226,12 +222,12 @@
         <option value="$PROJECT_DIR$/src/modules/Action.java" />
         <option value="$PROJECT_DIR$/src/modules/KeyBoardListener.java" />
         <option value="$PROJECT_DIR$/src/modules/KeyListenerModule.java" />
+        <option value="$PROJECT_DIR$/src/modules/MouseListenerModule.java" />
+        <option value="$PROJECT_DIR$/src/modules/RenderModule.java" />
         <option value="$PROJECT_DIR$/src/GameState/GameStateManager.java" />
         <option value="$PROJECT_DIR$/src/main/Game.java" />
         <option value="$PROJECT_DIR$/src/GameState/GameStates/MenuState.java" />
-        <option value="$PROJECT_DIR$/src/modules/MouseListenerModule.java" />
         <option value="$PROJECT_DIR$/src/modules/Button.java" />
-        <option value="$PROJECT_DIR$/src/modules/RenderModule.java" />
       </list>
     </option>
   </component>
@@ -312,7 +308,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541684087276" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541685434019" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -441,7 +437,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -450,7 +446,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.32917964" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.32917964" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997923" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -548,26 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameState/GameStateManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="28" column="52" lean-forward="true" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/awt/event/MouseEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-15963">
@@ -608,26 +584,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameState/GameStates/MenuState.java">
+    <entry file="file://$PROJECT_DIR$/src/main/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+        <state relative-caret-position="341">
+          <caret line="68" column="55" lean-forward="true" selection-start-line="68" selection-start-column="55" selection-end-line="68" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameState/GameStateManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameState/GameStates/MenuState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#267#275#0" expanded="true" />
             <element signature="e#201#202#0" expanded="true" />
             <element signature="e#231#232#0" expanded="true" />
-            <element signature="e#294#295#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-            <element signature="e#456#457#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/RenderModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Button.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        <state relative-caret-position="510">
+          <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="29" />
           <folding>
             <element signature="e#584#585#0" expanded="true" />
             <element signature="e#608#609#0" expanded="true" />
@@ -639,6 +639,8 @@
             <element signature="e#882#883#0" expanded="true" />
             <element signature="e#917#918#0" expanded="true" />
             <element signature="e#943#944#0" expanded="true" />
+            <element signature="e#1282#1283#0" expanded="true" />
+            <element signature="e#1311#1312#0" expanded="true" />
             <element signature="e#688#689#0" expanded="true" />
             <element signature="e#714#715#0" expanded="true" />
             <element signature="e#745#746#0" expanded="true" />
@@ -649,14 +651,9 @@
             <element signature="e#1031#1032#0" expanded="true" />
             <element signature="e#1242#1243#0" expanded="true" />
             <element signature="e#1274#1275#0" expanded="true" />
+            <element signature="e#1685#1686#0" expanded="true" />
+            <element signature="e#1721#1722#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/RenderModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
         </state>
       </provider>
     </entry>

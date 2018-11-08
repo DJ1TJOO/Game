@@ -2,12 +2,15 @@ package GameState.GameStates;
 
 import GameState.GameState;
 import GameState.GameStateManager;
+import main.Game;
 import modules.Button;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MenuState extends GameState {
-    private Button button1 = null;
+    List<Button> buttons = new ArrayList<Button>();
 
     public MenuState(GameStateManager gsm) {
         this.gsm = gsm;
@@ -15,19 +18,31 @@ public class MenuState extends GameState {
 
     @Override
     public void init() {
-        button1 = new Button("start", "Start", 0, 0, 100, 20, "WORLD1");
+        int Width = 200;
+        buttons.add(new Button("start", "Start", Game.WIDTH/2 - Width/2, 40, Width, 40, "WORLD1"));
+        buttons.add(new Button("compain", "Compain", Game.WIDTH/2 - Width/2, 100, Width, 40, "WORLD1"));
+        buttons.add(new Button("options", "Options", Game.WIDTH/2 - Width/2, 160, Width, 40, "OPTIONS"));
+        buttons.add(new Button("credits", "Credits", Game.WIDTH/2 - Width/2, 220, Width, 40, "CREDITS"));
+        buttons.add(new Button("logs", "Logs", Game.WIDTH/2 - Width/2, 280, Width, 40, "URLGIHUB"));
     }
 
     @Override
     public void render(Graphics2D g) {
-        button1.render(g);
+        for (Button button: buttons) {
+            button.render(g);
+        }
     }
 
     @Override
     public void tick() {
-        button1.tick();
-        if(button1.getOver()){
-            System.err.println("over");
+        for (Button button : buttons){
+            if(button.getName() == "start"){
+                if(button.getOver()){
+                    gsm.loadState(GameStateManager.toInt(button.getAction()));
+                }
+            }
+            button.setX(Game.WIDTH/2 - 150/2);
+            button.tick();
         }
     }
 

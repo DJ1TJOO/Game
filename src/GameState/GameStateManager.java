@@ -22,6 +22,10 @@ public class GameStateManager {
 
     }
 
+    public static int toInt(String action) {
+        
+    }
+
     public void tick(){
         if (!(gameState[currentState] == null))
             gameState[currentState].tick();
@@ -42,12 +46,13 @@ public class GameStateManager {
             gameState[currentState].keyReleased(k);
     }
 
-    private static void loadState(int state) {
+    public void loadState(int state) {
         if (state == MENUSTATE) {
             gameState[state] = new MenuState(GameStateManager);
         } else if (state == WORLD1) {
             gameState[state] = new World1(GameStateManager);
         }
+        currentState = state;
         gameState[state].init();
     }
 }

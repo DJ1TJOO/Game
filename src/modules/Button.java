@@ -16,7 +16,7 @@ public class Button {
         this.width = width;
         this.height = height;
         this.action = action;
-        textFont = new Font("Century Gothic", Font.PLAIN, height);
+        textFont = new Font("Century Gothic", Font.PLAIN, height - height/5);
     }
 
     public void tick(){
@@ -54,6 +54,10 @@ public class Button {
         return over;
     }
 
+    public String getAction() {
+        return action;
+    }
+
     public void setX(int x) {
         this.x = x;
     }
@@ -72,5 +76,9 @@ public class Button {
 
     public void setOver(Boolean over){
         this.over = over;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
     }
 }
