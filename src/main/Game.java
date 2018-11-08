@@ -2,6 +2,10 @@ package main;
 
 
 
+import GameState.GameStateManager;
+import modules.KeyListenerModule;
+import modules.MouseListenerModule;
+
 import javax.swing.*;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -11,15 +15,21 @@ import java.awt.image.BufferStrategy;
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = -6278825781006112087L;
+	private Thread thread;
+	private JFrame frame;
+	private boolean running;
+
 	public static final int PIX_WIDTH = 955, PXI_HEIGHT = 540;
 	public static int WIDTH, HEIGHT;
-	private Thread thread;
-	private boolean running;
-	private JFrame frame;
+
+	private GameStateManager gsm;
 
 	public Game() {
 		frame = new JFrame();
 		new Window(PIX_WIDTH, PXI_HEIGHT, "Steven and Thomas", this, frame);
+		gsm = new GameStateManager();
+		new MouseListenerModule();
+		new KeyListenerModule(gsm);
 	}
 
 	public synchronized void start() {
