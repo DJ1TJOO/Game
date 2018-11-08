@@ -5,7 +5,7 @@ import java.awt.*;
 public class Button {
     private int x, y, width, height;
     private String name, text, action;
-    private boolean over = false;
+    private boolean over = false, isPressed = false;
     private Font textFont;
 
     public Button(String name, String text, int x, int y, int width, int height, String action){
@@ -20,10 +20,14 @@ public class Button {
     }
 
     public void tick(){
-        if(MouseListenerModule.mouseOverClicked(x,y,width,height)){
-            over = true;
+
+    }
+
+    public void mouseClicked() {
+        if(MouseListenerModule.mouseHover(x,y,width,height)){
+            isPressed = true;
         } else {
-            over = false;
+            isPressed = false;
         }
     }
 
@@ -50,8 +54,12 @@ public class Button {
         return text;
     }
 
-    public boolean getOver(){
+    public boolean isOver(){
         return over;
+    }
+
+    public boolean isPressed() {
+        return isPressed;
     }
 
     public String getAction() {
@@ -78,7 +86,12 @@ public class Button {
         this.over = over;
     }
 
+    public void setPressed(Boolean isPressed){
+        this.isPressed = isPressed;
+    }
+
     public void setAction(String action) {
         this.action = action;
     }
+
 }

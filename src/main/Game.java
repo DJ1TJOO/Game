@@ -4,6 +4,7 @@ package main;
 
 import GameState.GameStateManager;
 import modules.KeyListenerModule;
+import modules.ModuleHandler;
 import modules.MouseListenerModule;
 
 import javax.swing.*;
@@ -21,13 +22,13 @@ public class Game extends Canvas implements Runnable {
 	public static int WIDTH, HEIGHT;
 
 	private GameStateManager gsm;
+	private ModuleHandler handler;
 
 	public Game() {
+	    handler = new ModuleHandler(gsm, this);
+        gsm = new GameStateManager();
 		frame = new JFrame();
 		new Window(PIX_WIDTH, PXI_HEIGHT, "Steven and Thomas", this, frame);
-		gsm = new GameStateManager();
-		addMouseListener(new MouseListenerModule());
-		new KeyListenerModule(gsm);
 	}
 
 	public synchronized void start() {

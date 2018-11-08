@@ -1,29 +1,33 @@
 package GameState;
 
 import GameState.GameStates.MenuState;
+import GameState.GameStates.Urlgithub;
 import GameState.GameStates.World1;
 
+import javax.print.DocFlavor;
 import java.awt.*;
+import java.util.HashMap;
 
 public class GameStateManager {
     private static GameState[] gameState;
     private static int currentState;
-    public static final int GAMESTATES = 14;
-    public static final int MENUSTATE = 0;
-    public static final int WORLD1 = 1;
+    private static HashMap<String, Integer> gameStates = new HashMap<String, Integer>();
+    public static final int GAMESTATES = 3;
     private static final GameStateManager GameStateManager = new GameStateManager();
 
     public GameStateManager() {
         gameState = new GameState[GAMESTATES];
-
-        currentState = MENUSTATE;
+        gameStates.put("MENUSTATE", 0);
+        gameStates.put("URLGITHUB", 1);
+        gameStates.put("WORLD1", 2);
+        currentState = gameStates.get("MENUSTATE");
 
         loadState(currentState);
 
     }
 
     public static int toInt(String action) {
-        
+        return gameStates.get(action);
     }
 
     public void tick(){
@@ -47,12 +51,15 @@ public class GameStateManager {
     }
 
     public void loadState(int state) {
-        if (state == MENUSTATE) {
+        if (state == gameStates.get("MENUSTATE")) {
             gameState[state] = new MenuState(GameStateManager);
-        } else if (state == WORLD1) {
+        } else if (state == gameStates.get("URLGITHUB")) {
+            gameState[state] = new Urlgithub(GameStateManager);
+        } else if (state == gameStates.get("WORLD1")) {
             gameState[state] = new World1(GameStateManager);
         }
         currentState = state;
         gameState[state].init();
+
     }
 }
