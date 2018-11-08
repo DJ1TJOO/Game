@@ -7,9 +7,7 @@ import modules.KeyListenerModule;
 import modules.MouseListenerModule;
 
 import javax.swing.*;
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 public class Game extends Canvas implements Runnable {
@@ -28,7 +26,7 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame();
 		new Window(PIX_WIDTH, PXI_HEIGHT, "Steven and Thomas", this, frame);
 		gsm = new GameStateManager();
-		new MouseListenerModule();
+		addMouseListener(new MouseListenerModule());
 		new KeyListenerModule(gsm);
 	}
 
@@ -81,6 +79,8 @@ public class Game extends Canvas implements Runnable {
 		HEIGHT = frame.getHeight();
 		System.err.println(WIDTH + " | " + HEIGHT);
 
+		gsm.tick();
+
 	}
 
 	private void render() {
@@ -90,10 +90,12 @@ public class Game extends Canvas implements Runnable {
 			return;
 		}
 		
-		Graphics g = bs.getDrawGraphics();
+		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 		
 		g.setColor(Color.black);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
+
+		gsm.render(g);
 		
 		g.dispose();
 		bs.show();

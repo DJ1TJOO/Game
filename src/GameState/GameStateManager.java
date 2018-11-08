@@ -48,5 +48,6 @@ public class GameStateManager {
         } else if (state == WORLD1) {
             gameState[state] = new World1(GameStateManager);
         }
+        gameState[state].init();
     }
 }

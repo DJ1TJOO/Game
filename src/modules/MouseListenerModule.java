@@ -5,10 +5,11 @@ import java.awt.event.MouseListener;
 
 public class MouseListenerModule implements MouseListener {
 
-    private int mx,my;
+    private static int mx,my;
 
     public void mouseClicked(MouseEvent e) {
-
+        mx = e.getX();
+        my = e.getY();
     }
 
     public void mouseEntered(MouseEvent e) {
@@ -20,8 +21,6 @@ public class MouseListenerModule implements MouseListener {
     }
 
     public void mousePressed(MouseEvent e) {
-        mx = e.getX() / 2;
-        my = e.getY() / 2;
 
     }
 
@@ -29,8 +28,7 @@ public class MouseListenerModule implements MouseListener {
 
     }
 
-    @SuppressWarnings("unused")
-    private boolean mouseOver(int x, int y, int width, int height) {
+    public static boolean mouseOverClicked(int x, int y, int width, int height) {
         //if (state == GameStateManager.getStateI()) {
         if (mx > x && mx < x + width) {
             if (my > y && my < y + height) {
