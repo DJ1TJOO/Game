@@ -16,4 +16,16 @@ public class RenderModule {
         // Draw the String
         g.drawString(text, x, y);
     }
+
+    public static float clamp(float f, float min, float max){
+        if(f > max){
+            return max;
+        } else if(f < min){
+            return min;
+        } else if(f > min && f < max){
+            return f;
+        } else {
+            return f;
+        }
+    }
 }

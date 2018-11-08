@@ -19,6 +19,11 @@ public class World1 extends GameState {
     }
 
     @Override
+    public void unload() {
+
+    }
+
+    @Override
     public void render(Graphics2D g) {
         player.render(g);
     }

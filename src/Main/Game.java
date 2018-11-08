@@ -14,8 +14,10 @@ public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = -6278825781006112087L;
 	private Thread thread;
-	private JFrame frame;
+	public static JFrame frame;
 	private boolean running;
+
+	public static float sx,sy;
 
 	public static final int PIX_WIDTH = 955, PIX_HEIGHT = 540;
 	public static int WIDTH, HEIGHT;
@@ -56,6 +58,9 @@ public class Game extends Canvas implements Runnable {
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
 			lastTime = now;
+
+			WIDTH = frame.getWidth();
+			HEIGHT = frame.getHeight();
 			while (delta >= 1) {
 				tick();
 				delta--;
@@ -74,9 +79,6 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	private void tick() {
-
-		WIDTH = frame.getWidth();
-		HEIGHT = frame.getHeight();
 		//System.err.println(WIDTH + " | " + HEIGHT);
 		handler.tick();
 		gsm.tick();
@@ -99,6 +101,8 @@ public class Game extends Canvas implements Runnable {
 		System.out.println(WIDTH + " | " + HEIGHT);
 		System.out.println((WIDTH - PIX_WIDTH) + " | " + (HEIGHT - PIX_HEIGHT));
 		System.out.println(sx + " | " + sy);*/
+		this.sx = sx;
+		this.sy = sy;
 		tx.scale(sx,sy);
 		g.transform(tx);
 		g.setColor(Color.black);
@@ -111,6 +115,10 @@ public class Game extends Canvas implements Runnable {
 
 	public static void main(String args[]) {
 		new Game();
+	}
+
+	public static void sys(String s){
+		System.err.println(s);
 	}
 
 }

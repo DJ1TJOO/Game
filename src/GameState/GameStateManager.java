@@ -51,6 +51,7 @@ public class GameStateManager {
     }
 
     public void loadState(int state) {
+        unload(currentState);
         if (state == gameStates.get("MENUSTATE")) {
             gameState[state] = new MenuState(GameStateManager);
         } else if (state == gameStates.get("URLGITHUB")) {
@@ -61,5 +62,9 @@ public class GameStateManager {
         currentState = state;
         gameState[state].init();
 
+    }
+
+    private void unload(int state){
+        gameState[state] = null;
     }
 }

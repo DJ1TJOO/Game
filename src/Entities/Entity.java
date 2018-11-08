@@ -3,9 +3,10 @@ package Entities;
 import java.awt.*;
 
 abstract class Entity {
-    private static int x, y, width, height;
+    private static float x, y;
+    private static int width, height;
 
-    public Entity(int x, int y, int width, int height) {
+    public Entity(float x, float y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -20,11 +21,11 @@ abstract class Entity {
 
     abstract void keyReleased(int k);
 
-    public static int getX() {
+    public static float getX() {
         return x;
     }
 
-    public static int getY() {
+    public static float getY() {
         return y;
     }
 
@@ -36,11 +37,11 @@ abstract class Entity {
         return width;
     }
 
-    public static void setX(int x) {
+    public static void setX(float x) {
         Entity.x = x;
     }
 
-    public static void setY(int y) {
+    public static void setY(float y) {
         Entity.y = y;
     }
 }

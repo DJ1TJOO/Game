@@ -9,6 +9,8 @@ public abstract class GameState {
 
     public abstract void init();
 
+    public abstract void unload();
+
     public abstract void render(Graphics2D g);
 
     public abstract void tick();

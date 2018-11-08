@@ -12,7 +12,6 @@ import java.util.List;
 
 public class MenuState extends GameState {
     List<Button> buttons = new ArrayList<Button>();
-    private boolean centerB;
 
     public MenuState(GameStateManager gsm) {
         this.gsm = gsm;
@@ -26,9 +25,15 @@ public class MenuState extends GameState {
         buttons.add(new Button("options", "Options", Game.WIDTH / 2 - Width / 2, 160, Width, 40, "OPTIONS"));
         buttons.add(new Button("credits", "Credits", Game.WIDTH / 2 - Width / 2, 220, Width, 40, "CREDITS"));
         buttons.add(new Button("logs", "Logs", Game.WIDTH / 2 - Width / 2, 280, Width, 40, "URLGITHUB"));
-        centerB = true;
         for (Button b: buttons) {
             ModuleHandler.buttons.add(b);
+        }
+    }
+
+    @Override
+    public void unload() {
+        for (Button b: buttons) {
+            ModuleHandler.buttons.remove(b);
         }
     }
 
@@ -41,12 +46,9 @@ public class MenuState extends GameState {
 
     @Override
     public void tick() {
-        if(centerB){
             for (Button button : buttons) {
-                button.setX(Game.WIDTH / 2 - 200 / 2);
+                button.setX(Game.PIX_WIDTH / 2 - 200 / 2);
             }
-            centerB = false;
-        }
         for (Button button : buttons) {
             if (button.isPressed()) {
                 gsm.loadState(GameStateManager.toInt(button.getAction()));

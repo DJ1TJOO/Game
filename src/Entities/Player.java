@@ -1,12 +1,19 @@
 package Entities;
 
+import Main.Game;
+import Modules.RenderModule;
+
 import java.awt.*;
 
 public class Player extends Entity {
 
     private float gravity = 1.2f;
+    private float stopSpeed = 0f;
+    private float dy = 0f;
 
-    public Player(int x, int y, int width, int height) {
+    private boolean falling = false;
+
+    public Player(float x, float y, int width, int height) {
         super(x, y, width, height);
     }
 
@@ -14,12 +21,22 @@ public class Player extends Entity {
     public void render(Graphics2D g) {
 
         g.setColor(Color.green);
-        g.fill3DRect(getX(),getY(),getWidth(),getHeight(), true);
+        g.fill3DRect((int)getX(),(int)getY(),getWidth(),getHeight(), true);
     }
 
     @Override
     public void tick() {
-        
+        if(!(getY() >= (Game.HEIGHT - getHeight()))){
+            falling = true;
+        } else {
+            falling = false;
+        }
+        if(falling){
+            dy += gravity * 0.1;
+        }
+
+        setY(getY() + dy);
+        setY(RenderModule.clamp(getY(), 0,(float)(Game.HEIGHT - getHeight())));
     }
 
     @Override

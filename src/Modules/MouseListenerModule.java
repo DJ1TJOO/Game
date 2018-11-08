@@ -1,5 +1,7 @@
 package Modules;
 
+import Main.Game;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -14,37 +16,27 @@ public class MouseListenerModule implements MouseListener {
     }
 
     public void tick(){
-        mx = (int)MouseInfo.getPointerInfo().getLocation().getX();
-        my = (int)MouseInfo.getPointerInfo().getLocation().getY();
+        mx = (int)((MouseInfo.getPointerInfo().getLocation().getX() - Game.frame.getX()) / Game.sx);
+        my = (int)((MouseInfo.getPointerInfo().getLocation().getY() - Game.frame.getY() - 30) / Game.sy);
     }
 
     public void mouseClicked(MouseEvent e) {
-        mx = e.getX();
-        my = e.getY();
         handler.mouseClicked(e);
     }
 
     public void mouseEntered(MouseEvent e) {
-        mx = e.getX();
-        my = e.getY();
         handler.mouseEntered(e);
     }
 
     public void mouseExited(MouseEvent e) {
-        mx = e.getX();
-        my = e.getY();
         handler.mouseExited(e);
     }
 
     public void mousePressed(MouseEvent e) {
-        mx = e.getX();
-        my = e.getY();
         handler.mousePressed(e);
     }
 
     public void mouseReleased(MouseEvent e) {
-        mx = e.getX();
-        my = e.getY();
         handler.mouseReleased(e);
     }
 
