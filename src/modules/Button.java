@@ -3,14 +3,17 @@ package modules;
 import java.awt.*;
 
 public class Button {
-    private int x, y;
-    private String name, text;
+    private int x, y, width, height;
+    private String name, text, action;
 
-    public Button(String name, String text, int x, int y){
+    public Button(String name, String text, int x, int y, int width, int height, String action){
         this.name = name;
         this.text = text;
         this.x = x;
         this.y = y;
+        this.width = width;
+        this.height = height;
+        this.action = action;
     }
 
     public void tick(){

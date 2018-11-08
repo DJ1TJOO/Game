@@ -20,7 +20,7 @@ public class MouseListenerModule implements MouseListener {
     public void mousePressed(MouseEvent e) {
         int mx = e.getX() / 2;
         int my = e.getY() / 2;
-    
+
     }
 
     public void mouseReleased(MouseEvent e) {
