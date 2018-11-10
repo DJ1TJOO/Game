@@ -8,7 +8,7 @@ import java.awt.*;
 public class Player extends Entity {
 
     private float gravity = 1.2f;
-    private float stopSpeed = 0f;
+    private float stopSpeed = 4.0f;
     private float dy = 0f;
 
     private boolean falling = false;
@@ -33,6 +33,10 @@ public class Player extends Entity {
         }
         if(falling){
             dy += gravity * 0.1;
+        } else if(dy > 0){
+            dy -= stopSpeed * 0.1;
+        } else {
+            dy = 0;
         }
 
         setY(getY() + dy);
