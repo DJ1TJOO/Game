@@ -1,6 +1,7 @@
 package Modules;
 
 import GameState.GameStateManager;
+import Main.Game;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

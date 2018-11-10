@@ -13,7 +13,7 @@ public class ModuleHandler {
 
     public ModuleHandler(GameStateManager gsm, Game game){
         game.addMouseListener(mouseListener = new MouseListenerModule(this));
-        new KeyListenerModule(gsm);
+        game.addKeyListener(new KeyListenerModule(gsm));
     }
 
     public void tick(){

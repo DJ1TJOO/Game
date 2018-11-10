@@ -20,14 +20,15 @@ public class Game extends Canvas implements Runnable {
 	public static float sx,sy;
 
 	public static final int PIX_WIDTH = 955, PIX_HEIGHT = 540;
+	public static final int GAME_WIDTH = 905, GAME_HEIGHT = 500;
 	public static int WIDTH, HEIGHT;
 
 	private GameStateManager gsm;
 	private ModuleHandler handler;
 
 	public Game() {
-	    handler = new ModuleHandler(gsm, this);
         gsm = new GameStateManager();
+		handler = new ModuleHandler(gsm, this);
 		frame = new JFrame();
 		new Window(PIX_WIDTH, PIX_HEIGHT, "Steven and Thomas", this, frame);
 	}
@@ -95,8 +96,8 @@ public class Game extends Canvas implements Runnable {
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 		AffineTransform tx = new AffineTransform();
 		tx.concatenate(g.getTransform());
-		float sx = (float)(WIDTH - PIX_WIDTH)/PIX_WIDTH + 1f;
-		float sy = (float)(HEIGHT - PIX_HEIGHT)/PIX_HEIGHT + 1f;
+		float sx = (float)(WIDTH - GAME_WIDTH - 40)/GAME_WIDTH + 1f;
+		float sy = (float)(HEIGHT - GAME_HEIGHT - 40)/GAME_HEIGHT + 1f;
 		/*System.out.println(PIX_WIDTH + " | " + PIX_HEIGHT);
 		System.out.println(WIDTH + " | " + HEIGHT);
 		System.out.println((WIDTH - PIX_WIDTH) + " | " + (HEIGHT - PIX_HEIGHT));
@@ -107,6 +108,7 @@ public class Game extends Canvas implements Runnable {
 		g.transform(tx);
 		g.setColor(Color.black);
 		g.fillRect(0,0, WIDTH, HEIGHT);
+
 		gsm.render(g);
 		
 		g.dispose();

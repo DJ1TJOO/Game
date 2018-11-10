@@ -16,8 +16,9 @@ public class MouseListenerModule implements MouseListener {
     }
 
     public void tick(){
-        mx = (int)((MouseInfo.getPointerInfo().getLocation().getX() - Game.frame.getX()) / Game.sx);
-        my = (int)((MouseInfo.getPointerInfo().getLocation().getY() - Game.frame.getY() - 30) / Game.sy);
+        mx = (int)((MouseInfo.getPointerInfo().getLocation().getX() - Game.frame.getLocationOnScreen().getX()) / Game.sx);
+        my = (int)((MouseInfo.getPointerInfo().getLocation().getY() - Game.frame.getLocationOnScreen().getY() - 30) / Game.sy);
+       // Game.sys(mx + " | " + my);
     }
 
     public void mouseClicked(MouseEvent e) {

@@ -3,45 +3,55 @@ package Entities;
 import java.awt.*;
 
 abstract class Entity {
-    private static float x, y;
-    private static int width, height;
+    protected float x, y;
+    protected int width, height;
 
-    public Entity(float x, float y, int width, int height) {
+    public Entity(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
     }
 
-    abstract void render(Graphics2D g);
+    public boolean intersects(Entity e) {
+        Rectangle r1 = getRactangle();
+        Rectangle r2 = e.getRactangle();
+        return r1.intersects(r2);
+    }
 
-    abstract void tick();
+    public Rectangle getRactangle() {
+        return new Rectangle((int) x - width, (int) y - height, width, height);
+    }
 
-    abstract void keyPressed(int k);
+    abstract public void render(Graphics2D g);
 
-    abstract void keyReleased(int k);
+    abstract public void tick();
 
-    public static float getX() {
+    abstract public void keyPressed(int k);
+
+    abstract public void keyReleased(int k);
+
+    public float getX() {
         return x;
     }
 
-    public static float getY() {
+    public float getY() {
         return y;
     }
 
-    public static int getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public static int getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public static void setX(float x) {
-        Entity.x = x;
+    public void setX(float x) {
+        this.x = x;
     }
 
-    public static void setY(float y) {
-        Entity.y = y;
+    public void setY(float y) {
+        this.y = y;
     }
 }
