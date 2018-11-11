@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModuleHandler {
-    public static List<Button> buttons = new ArrayList<Button>();
+    public static List<ButtonModule> buttons = new ArrayList<ButtonModule>();
     private MouseListenerModule mouseListener;
 
     public ModuleHandler(GameStateManager gsm, Game game){
@@ -21,7 +21,7 @@ public class ModuleHandler {
     }
 
     public void mouseClicked(MouseEvent e) {
-        for (Button b : buttons) {
+        for (ButtonModule b : buttons) {
             b.mouseClicked();
         }
     }

@@ -54,4 +54,12 @@ abstract class Entity {
     public void setY(float y) {
         this.y = y;
     }
+
+    public void addX(float addX){
+        setX(getX() + addX);
+    }
+
+    public void addY(float addY){
+        setY(getY() + addY);
+    }
 }

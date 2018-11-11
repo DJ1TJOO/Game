@@ -44,15 +44,24 @@ public class Player extends Entity {
 
     @Override
     public void tick() {
+        /*int i = 0;
         for (Player p : World1.players) {
-            if(!p.equals(this)){
-                if(intersects(p)){
-                    setX(getX() + dx * -1f);
-                    setY(getY() + dy * -1f);
+            if(i == 1 && !p.equals(this)){
+                if(intersects(p) && !jumping){
+                    addX(dx * -1f);
+                    addY(dy * -1f);
                     falling = false;
                 }
             }
-        }
+            i++;
+            /*if(!p.equals(this)){
+                if(intersects(p)){
+                    addX(dx * -1f);
+                    addY(dy * -1f);
+                    falling = false;
+                }
+            }
+        }*/
         if(left && right){
             dx = 0;
         } else if (left) {
@@ -97,8 +106,8 @@ public class Player extends Entity {
         }
 
 
-        setX(getX() + dx);
-        setY(getY() + dy);
+        addX(dx);
+        addY(dy);
         setY(RenderModule.clamp(getY(), 0,(Game.GAME_HEIGHT - getHeight())));
         //Game.sys(getY() + "");
     }

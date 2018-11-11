@@ -3,7 +3,7 @@ package GameState.GameStates;
 import GameState.GameState;
 import GameState.GameStateManager;
 import Main.Game;
-import Modules.Button;
+import Modules.ButtonModule;
 import Modules.ModuleHandler;
 
 import java.awt.*;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MenuState extends GameState {
-    List<Button> buttons = new ArrayList<Button>();
+    List<ButtonModule> buttons = new ArrayList<ButtonModule>();
 
     public MenuState(GameStateManager gsm) {
         this.gsm = gsm;
@@ -20,39 +20,36 @@ public class MenuState extends GameState {
     @Override
     public void init() {
         int Width = 200;
-        buttons.add(new Button("start", "Start", Game.WIDTH / 2 - Width / 2, 40, Width, 40, "WORLD1"));
-        buttons.add(new Button("compain", "Compain", Game.WIDTH / 2 - Width / 2, 100, Width, 40, "WORLD1"));
-        buttons.add(new Button("options", "Options", Game.WIDTH / 2 - Width / 2, 160, Width, 40, "OPTIONS"));
-        buttons.add(new Button("credits", "Credits", Game.WIDTH / 2 - Width / 2, 220, Width, 40, "CREDITS"));
-        buttons.add(new Button("logs", "Logs", Game.WIDTH / 2 - Width / 2, 280, Width, 40, "URLGITHUB"));
-        for (Button b: buttons) {
+        buttons.add(new ButtonModule("start", "Start", Game.WIDTH / 2 - Width / 2, 40, Width, 40, "WORLD1", gsm));
+        buttons.add(new ButtonModule("compain", "Compain", Game.WIDTH / 2 - Width / 2, 100, Width, 40, "WORLD1", gsm));
+        buttons.add(new ButtonModule("options", "Options", Game.WIDTH / 2 - Width / 2, 160, Width, 40, "OPTIONS", gsm));
+        buttons.add(new ButtonModule("credits", "Credits", Game.WIDTH / 2 - Width / 2, 220, Width, 40, "CREDITS", gsm));
+        buttons.add(new ButtonModule("logs", "Logs", Game.WIDTH / 2 - Width / 2, 280, Width, 40, "URLGITHUB", gsm));
+        for (ButtonModule b: buttons) {
             ModuleHandler.buttons.add(b);
         }
     }
 
     @Override
     public void unload() {
-        for (Button b: buttons) {
+        for (ButtonModule b: buttons) {
             ModuleHandler.buttons.remove(b);
         }
     }
 
     @Override
     public void render(Graphics2D g) {
-        for (Button button : buttons) {
+        for (ButtonModule button : buttons) {
             button.render(g);
         }
     }
 
     @Override
     public void tick() {
-            for (Button button : buttons) {
+            for (ButtonModule button : buttons) {
                 button.setX(Game.PIX_WIDTH / 2 - 200 / 2);
             }
-        for (Button button : buttons) {
-            if (button.isPressed()) {
-                gsm.loadState(GameStateManager.toInt(button.getAction()));
-            }
+        for (ButtonModule button : buttons) {
             button.tick();
         }
     }
