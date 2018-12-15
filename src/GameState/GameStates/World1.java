@@ -4,6 +4,7 @@ import Entities.Player;
 import GameState.GameState;
 import GameState.GameStateManager;
 import Main.Game;
+import Modules.BackgoundModule;
 import Modules.ButtonModule;
 import Modules.ModuleHandler;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class World1 extends GameState {
     public static List<Player> players = new ArrayList<Player>();
     List<ButtonModule> buttons = new ArrayList<ButtonModule>();
+    BackgoundModule bg;
 
     public World1(GameStateManager gsm) {
         this.gsm = gsm;
@@ -24,6 +26,7 @@ public class World1 extends GameState {
     public void init() {
         players.add(new Player(100,Game.GAME_HEIGHT - 120,50,120, KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_D));
         buttons.add(new ButtonModule("crafting", "Crafting", 10, 160, 80, 24, "/craft", gsm));
+        bg = new BackgoundModule(new Color(19, 255, 253));
         for (ButtonModule b: buttons) {
             ModuleHandler.buttons.add(b);
         }
@@ -38,6 +41,7 @@ public class World1 extends GameState {
 
     @Override
     public void render(Graphics2D g) {
+        bg.render(g);
         for (Player p : players) {
             p.render(g);
         }
