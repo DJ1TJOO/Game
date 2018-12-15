@@ -26,6 +26,8 @@ public class Player extends Entity {
     private boolean left = false;
     private boolean right = false;
 
+    private boolean openedCrafting = false;
+
 
 
     public Player(int x, int y, int width, int height, int jumpKey, int leftKey, int rightKey) {
@@ -40,6 +42,11 @@ public class Player extends Entity {
 
         g.setColor(Color.green);
         g.fillRect((int)getX(),(int)getY(),getWidth(),getHeight());
+
+        if(openedCrafting){
+            g.setColor(Color.blue);
+            g.fillRect(0, 0, Game.PIX_WIDTH, Game.PIX_HEIGHT);
+        }
     }
 
     @Override
@@ -118,5 +125,9 @@ public class Player extends Entity {
         if(k == rightKey){
             right = false;
         }
+    }
+
+    public void openCraftingTable() {
+        openedCrafting = true;
     }
 }

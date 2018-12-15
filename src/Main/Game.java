@@ -19,7 +19,7 @@ public class Game extends Canvas implements Runnable {
 
 	public static float sx,sy;
 
-	public static final int PIX_WIDTH = 955, PIX_HEIGHT = 540;
+	public static final int PIX_WIDTH = 965, PIX_HEIGHT = 530;
 	public static final int GAME_WIDTH = 905, GAME_HEIGHT = 500;
 	public static int WIDTH, HEIGHT;
 

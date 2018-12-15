@@ -1,11 +1,13 @@
 package Modules;
 
+import Entities.Entity;
+import Entities.Player;
 import Enums.CommanderTypes;
 import GameState.GameStateManager;
 import Main.Game;
 
 public class ExecuteModule {
-    public static String execute(Commander commander, String[] args, String command, GameStateManager gsm){
+    public static String execute(Entity entiy, Commander commander, String[] args, String command, GameStateManager gsm){
         Game.sys(command);
         for (String s: args) {
             Game.sys(s);
@@ -21,8 +23,9 @@ public class ExecuteModule {
         }
         if(args[0].equals("craft")){
             if(commander.type.equals(CommanderTypes.PLAYER)){
-                if(args[1].equals(null)){
-                    
+                if(!(args.length > 1)){
+                    Player player = (Player) entiy;
+                    player.openCraftingTable();
                 }
             } else {
                 return "You must be a player to use this command";

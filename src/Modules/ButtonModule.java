@@ -1,7 +1,9 @@
 package Modules;
 
+import Entities.Entity;
 import Enums.CommanderTypes;
 import GameState.GameStateManager;
+import GameState.GameStates.World1;
 import Main.Game;
 
 import java.awt.*;
@@ -128,14 +130,21 @@ public class ButtonModule {
             if(action.startsWith("/")){
                 String[] args = action1.split(" ");
                 Commander commander;
+                Entity entity;
                 if(GameStateManager.getCurrentGameStateString().equals("MENUSTATE")){
-                    commander = new Commander("client", CommanderTypes.CLIENT);
+                    commander = new Commander(0,0,0,0,"client", CommanderTypes.CLIENT);
+                    entity = null;
                 } else if(GameStateManager.getCurrentGameStateString().equals("WORLD")){
-                    commander = new Commander("player", CommanderTypes.PLAYER);
+                    commander = new Commander(0,0,0,0,"player", CommanderTypes.PLAYER);
+                    entity = null;
+                    for (Entity entity1: World1.players) {
+                        entity = entity1;
+                    }
                 } else {
-                    commander = new Commander("server", CommanderTypes.SERVER);
+                    commander = new Commander(0,0,0,0,"server", CommanderTypes.SERVER);
+                    entity = null;
                 }
-                ExecuteModule.execute(commander, args, action1, gsm);
+                ExecuteModule.execute(entity, commander, args, action1, gsm);
                 isPressed = false;
             }
         }

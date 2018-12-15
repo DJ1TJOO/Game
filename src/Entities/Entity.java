@@ -2,7 +2,7 @@ package Entities;
 
 import java.awt.*;
 
-abstract class Entity {
+public abstract class Entity {
     protected float x, y;
     protected int width, height;
 
