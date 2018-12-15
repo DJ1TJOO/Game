@@ -44,24 +44,6 @@ public class Player extends Entity {
 
     @Override
     public void tick() {
-        /*int i = 0;
-        for (Player p : World1.players) {
-            if(i == 1 && !p.equals(this)){
-                if(intersects(p) && !jumping){
-                    addX(dx * -1f);
-                    addY(dy * -1f);
-                    falling = false;
-                }
-            }
-            i++;
-            /*if(!p.equals(this)){
-                if(intersects(p)){
-                    addX(dx * -1f);
-                    addY(dy * -1f);
-                    falling = false;
-                }
-            }
-        }*/
         if(left && right){
             dx = 0;
         } else if (left) {

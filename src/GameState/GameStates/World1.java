@@ -22,11 +22,8 @@ public class World1 extends GameState {
 
     @Override
     public void init() {
-        players.add(new Player(400, Game.GAME_HEIGHT - 120,50,120, KeyEvent.VK_UP, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT));
         players.add(new Player(100,Game.GAME_HEIGHT - 120,50,120, KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_D));
-        buttons.add(new ButtonModule("punch", "Punch", 10, 160, 100, 40, "/punch", gsm));
-        buttons.add(new ButtonModule("kick", "Kick", 10, 220, 100, 40, "/kick", gsm));
-        buttons.add(new ButtonModule("swipe", "Swipe", 10, 280, 100, 40, "/swipe", gsm));
+        buttons.add(new ButtonModule("crafting", "Crafting", 10, 160, 80, 24, "/craft", gsm));
         for (ButtonModule b: buttons) {
             ModuleHandler.buttons.add(b);
         }

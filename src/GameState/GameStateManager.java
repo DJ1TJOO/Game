@@ -3,6 +3,7 @@ package GameState;
 import GameState.GameStates.MenuState;
 import GameState.GameStates.Urlgithub;
 import GameState.GameStates.World1;
+import Main.Game;
 
 import javax.print.DocFlavor;
 import java.awt.*;
@@ -19,7 +20,7 @@ public class GameStateManager {
         gameState = new GameState[GAMESTATES];
         gameStates.put("MENUSTATE", 0);
         gameStates.put("URLGITHUB", 1);
-        gameStates.put("WORLD1", 2);
+        gameStates.put("WORLD", 2);
         currentState = gameStates.get("MENUSTATE");
 
         loadState(currentState);
@@ -27,6 +28,7 @@ public class GameStateManager {
     }
 
     public static int toInt(String action) {
+        Game.sys(action);
         return gameStates.get(action);
     }
 
@@ -56,7 +58,7 @@ public class GameStateManager {
             gameState[state] = new MenuState(GameStateManager);
         } else if (state == gameStates.get("URLGITHUB")) {
             gameState[state] = new Urlgithub(GameStateManager);
-        } else if (state == gameStates.get("WORLD1")) {
+        } else if (state == gameStates.get("WORLD")) {
             gameState[state] = new World1(GameStateManager);
         }
         currentState = state;

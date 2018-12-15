@@ -125,10 +125,8 @@ public class ButtonModule {
         if (isPressed()) {
             String action1 = this.action.substring(1, this.action.length());
             if(action.startsWith("/")){
-                ExecuteModule.execute(action1);
-                isPressed = false;
-            } else {
-                gsm.loadState(GameStateManager.toInt(getAction()));
+                String[] args = action1.split(" ");
+                ExecuteModule.execute(args, action1, gsm);
                 isPressed = false;
             }
         }
