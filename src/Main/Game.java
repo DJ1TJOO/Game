@@ -2,7 +2,9 @@ package Main;
 
 
 
+import Entities.Camera;
 import GameState.GameStateManager;
+import GameState.GameStates.World1;
 import Modules.ModuleHandler;
 
 import javax.swing.*;
@@ -25,9 +27,11 @@ public class Game extends Canvas implements Runnable {
 
 	private GameStateManager gsm;
 	private ModuleHandler handler;
+	private Camera camera;
 
 	public Game() {
-        gsm = new GameStateManager();
+		camera = new Camera(0,0);
+        gsm = new GameStateManager(camera);
 		handler = new ModuleHandler(gsm, this);
 		frame = new JFrame();
 		new Window(PIX_WIDTH, PIX_HEIGHT, "Steven and Thomas", this, frame);
@@ -83,7 +87,9 @@ public class Game extends Canvas implements Runnable {
 		//System.err.println(WIDTH + " | " + HEIGHT);
 		handler.tick();
 		gsm.tick();
-
+		if(GameStateManager.getCurrentGameStateString().equals("WORLD")){
+			camera.tick(World1.players.get(0));
+		}
 	}
 
 	private void render() {
@@ -106,11 +112,20 @@ public class Game extends Canvas implements Runnable {
 		this.sy = sy;
 		tx.scale(sx,sy);
 		g.transform(tx);
+		//sys(camera.getX() + " " + camera.getY());
+		g.translate(-camera.getX(), -camera.getY());
+
+		////////////////////////////////////////
+
 		g.setColor(Color.black);
 		g.fillRect(0,0, WIDTH, HEIGHT);
 
 		gsm.render(g);
-		
+
+		////////////////////////////////////////
+
+		g.translate(camera.getX(), camera.getY());
+
 		g.dispose();
 		bs.show();
 	}

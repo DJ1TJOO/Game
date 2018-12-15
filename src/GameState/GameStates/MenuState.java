@@ -1,5 +1,6 @@
 package GameState.GameStates;
 
+import Entities.Camera;
 import GameState.GameState;
 import GameState.GameStateManager;
 import Main.Game;
@@ -13,8 +14,9 @@ import java.util.List;
 public class MenuState extends GameState {
     List<ButtonModule> buttons = new ArrayList<ButtonModule>();
 
-    public MenuState(GameStateManager gsm) {
+    public MenuState (GameStateManager gsm, Camera cam) {
         this.gsm = gsm;
+        this.cam = cam;
     }
 
     @Override
@@ -39,7 +41,7 @@ public class MenuState extends GameState {
     @Override
     public void render(Graphics2D g) {
         for (ButtonModule button : buttons) {
-            button.render(g);
+            button.render(g, cam);
         }
     }
 

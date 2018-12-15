@@ -28,13 +28,14 @@ public class Player extends Entity {
 
     private boolean openedCrafting = false;
 
+    private Camera cam;
 
-
-    public Player(int x, int y, int width, int height, int jumpKey, int leftKey, int rightKey) {
+    public Player(int x, int y, int width, int height, int jumpKey, int leftKey, int rightKey, Camera cam) {
         super(x, y, width, height);
         this.jumpKey = jumpKey;
         this.leftKey = leftKey;
         this.rightKey = rightKey;
+        this.cam = cam;
     }
 
     @Override
@@ -76,10 +77,6 @@ public class Player extends Entity {
                 }
             }
         }
-        if(dy > 0 && getY() >= (Game.GAME_HEIGHT - getHeight())){
-            dy = 0;
-            falling = false;
-        }
         if(jumping && !falling){
             dy += jumpStart;
             falling = true;
@@ -97,8 +94,9 @@ public class Player extends Entity {
 
         addX(dx);
         addY(dy);
-        setY(RenderModule.clamp(getY(), 0,(Game.GAME_HEIGHT - getHeight())));
-        //Game.sys(getY() + "");
+        Game.sys(dy + " dy player");
+        Game.sys(getY() + " y player");
+        Game.sys(cam.getY() + " y cam");
     }
 
     @Override

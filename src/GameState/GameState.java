@@ -1,10 +1,13 @@
 package GameState;
 
+import Entities.Camera;
+
 import java.awt.Graphics2D;
 
 public abstract class GameState {
 
     protected GameStateManager gsm;
+    protected Camera cam;
     public boolean pause;
 
     public abstract void init();

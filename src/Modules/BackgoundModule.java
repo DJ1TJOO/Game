@@ -13,6 +13,6 @@ public class BackgoundModule {
 
     public void render(Graphics g){
         g.setColor(skycolor);
-        g.fillRect(0, 0, Game.PIX_WIDTH, Game.PIX_HEIGHT);
+        g.fillRect(-10000000, -10000000, 10000000 * 3, 10000000 * 3);
     }
 }

@@ -1,5 +1,6 @@
 package GameState;
 
+import Entities.Camera;
 import GameState.GameStates.MenuState;
 import GameState.GameStates.Urlgithub;
 import GameState.GameStates.World1;
@@ -14,15 +15,15 @@ public class GameStateManager {
     private static int currentState;
     private static HashMap<String, Integer> gameStates = new HashMap<String, Integer>();
     public static final int GAMESTATES = 3;
-    private static final GameStateManager GameStateManager = new GameStateManager();
+    Camera cam;
 
-    public GameStateManager() {
+    public GameStateManager(Camera cam) {
         gameState = new GameState[GAMESTATES];
         gameStates.put("MENUSTATE", 0);
         gameStates.put("URLGITHUB", 1);
         gameStates.put("WORLD", 2);
         currentState = gameStates.get("MENUSTATE");
-
+        this.cam = cam;
         loadState(currentState);
 
     }
@@ -67,11 +68,11 @@ public class GameStateManager {
     public void loadState(int state) {
         unload(currentState);
         if (state == gameStates.get("MENUSTATE")) {
-            gameState[state] = new MenuState(GameStateManager);
+            gameState[state] = new MenuState(this, cam);
         } else if (state == gameStates.get("URLGITHUB")) {
-            gameState[state] = new Urlgithub(GameStateManager);
+            gameState[state] = new Urlgithub(this);
         } else if (state == gameStates.get("WORLD")) {
-            gameState[state] = new World1(GameStateManager);
+            gameState[state] = new World1(this, cam);
         }
         currentState = state;
         gameState[state].init();

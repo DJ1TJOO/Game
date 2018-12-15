@@ -1,5 +1,6 @@
 package Modules;
 
+import Entities.Camera;
 import Entities.Entity;
 import Enums.CommanderTypes;
 import GameState.GameStateManager;
@@ -57,7 +58,9 @@ public class ButtonModule {
         }
     }
 
-    public void render(Graphics2D g) {
+    public void render(Graphics2D g, Camera cam) {
+
+        g.translate(cam.getX(), cam.getY());
         if (image == null) {
             g.setColor(Color.red);
             g.fillRect(x, y, width, height);
@@ -66,6 +69,7 @@ public class ButtonModule {
         }
         g.setColor(Color.black);
         RenderModule.drawCenteredString(g, text, new Rectangle(x, y, width, height), textFont);
+        g.translate(-cam.getX(), -cam.getY());
     }
 
     public int getX() {
