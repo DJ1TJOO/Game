@@ -1,5 +1,7 @@
 package Modules;
 
+import Main.Game;
+
 import java.awt.*;
 
 public class BackgoundModule {
@@ -10,6 +12,6 @@ public class BackgoundModule {
     }
 
     public static void render(Graphics g){
-        g.fillRect();
+        g.fillRect(0, 0, Game.PIX_WIDTH, Game.PIX_HEIGHT);
     }
 }
