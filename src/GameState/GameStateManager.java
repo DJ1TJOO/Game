@@ -27,9 +27,21 @@ public class GameStateManager {
 
     }
 
+    public static String getCurrentGameStateString(){
+        return toString(currentState);
+    }
+
     public static int toInt(String action) {
-        Game.sys(action);
         return gameStates.get(action);
+    }
+
+    public static String toString(int gameState) {
+        for (String key : gameStates.keySet()) {
+            if(gameStates.get(key) == gameState){
+                return key;
+            }
+        }
+        return null;
     }
 
     public void tick(){

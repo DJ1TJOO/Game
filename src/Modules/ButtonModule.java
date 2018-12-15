@@ -1,5 +1,6 @@
 package Modules;
 
+import Enums.CommanderTypes;
 import GameState.GameStateManager;
 import Main.Game;
 
@@ -126,7 +127,15 @@ public class ButtonModule {
             String action1 = this.action.substring(1, this.action.length());
             if(action.startsWith("/")){
                 String[] args = action1.split(" ");
-                ExecuteModule.execute(args, action1, gsm);
+                Commander commander;
+                if(GameStateManager.getCurrentGameStateString().equals("MENUSTATE")){
+                    commander = new Commander("client", CommanderTypes.CLIENT);
+                } else if(GameStateManager.getCurrentGameStateString().equals("WORLD")){
+                    commander = new Commander("player", CommanderTypes.PLAYER);
+                } else {
+                    commander = new Commander("server", CommanderTypes.SERVER);
+                }
+                ExecuteModule.execute(commander, args, action1, gsm);
                 isPressed = false;
             }
         }
