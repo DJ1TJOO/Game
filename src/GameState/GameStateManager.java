@@ -5,9 +5,11 @@ import GameState.GameStates.MenuState;
 import GameState.GameStates.Urlgithub;
 import GameState.GameStates.World1;
 import Main.Game;
+import Modules.ButtonModule;
 
 import javax.print.DocFlavor;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.util.HashMap;
 
 public class GameStateManager {
@@ -53,6 +55,30 @@ public class GameStateManager {
     public void render(Graphics2D g){
         if (!(gameState[currentState] == null))
             gameState[currentState].render(g);
+    }
+    public void mouseClicked(MouseEvent e) {
+        if (!(gameState[currentState] == null))
+            gameState[currentState].mouseClicked(e);
+    }
+
+    public void mouseEntered(MouseEvent e) {
+        if (!(gameState[currentState] == null))
+            gameState[currentState].mouseEntered(e);
+    }
+
+    public void mouseExited(MouseEvent e) {
+        if (!(gameState[currentState] == null))
+            gameState[currentState].mouseExited(e);
+    }
+
+    public void mousePressed(MouseEvent e) {
+        if (!(gameState[currentState] == null))
+            gameState[currentState].mousePressed(e);
+    }
+
+    public void mouseReleased(MouseEvent e) {
+        if (!(gameState[currentState] == null))
+            gameState[currentState].mouseReleased(e);
     }
 
     public void keyPressed(int k) {

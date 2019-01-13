@@ -12,6 +12,7 @@ import Modules.TerrainModule;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,13 +28,23 @@ public class World1 extends GameState {
 
     @Override
     public void init() {
-        players.add(new Player(100,Game.GAME_HEIGHT - 120,50,120, KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_D, cam));
         buttons.add(new ButtonModule("crafting", "Crafting", 10, 160, 80, 24, "/craft", gsm));
         bg = new BackgoundModule(new Color(19, 255, 253));
         for (ButtonModule b: buttons) {
             ModuleHandler.buttons.add(b);
         }
         TerrainModule.generate();
+        int xPlayer = 0;
+        int yPlayer = 0;
+       /* for (int i = xPlayer - 32; i < (xPlayer + 32); i++) {
+            if(TerrainModule.top.get(i) != null){
+                yPlayer = TerrainModule.top.get(i);
+                xPlayer = i;
+            }
+        }*/
+        yPlayer = TerrainModule.getTop(xPlayer);
+        Game.sys(yPlayer + " y generated");
+        players.add(new Player(xPlayer,yPlayer - 120,50,120, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D, cam));
     }
 
     @Override
@@ -46,7 +57,7 @@ public class World1 extends GameState {
     @Override
     public void render(Graphics2D g) {
         bg.render(g);
-        TerrainModule.render(g);
+        TerrainModule.render(g, cam);
         for (Player p : players) {
             p.render(g);
         }
@@ -77,5 +88,32 @@ public class World1 extends GameState {
         for (Player p : players) {
             p.keyReleased(k);
         }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        for (Player p: players) {
+            p.mouseClicked(e);
+        }
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
     }
 }

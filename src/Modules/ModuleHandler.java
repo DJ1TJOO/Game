@@ -10,8 +10,10 @@ import java.util.List;
 public class ModuleHandler {
     public static List<ButtonModule> buttons = new ArrayList<ButtonModule>();
     private MouseListenerModule mouseListener;
+    private GameStateManager gsm;
 
     public ModuleHandler(GameStateManager gsm, Game game){
+        this.gsm = gsm;
         game.addMouseListener(mouseListener = new MouseListenerModule(this));
         game.addKeyListener(new KeyListenerModule(gsm));
     }

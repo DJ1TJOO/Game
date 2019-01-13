@@ -4,6 +4,7 @@ import GameState.GameStateManager;
 import GameState.GameState;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -44,6 +45,31 @@ public class Urlgithub extends GameState {
     }
 
     public void keyReleased(int k) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
 
     }
 }

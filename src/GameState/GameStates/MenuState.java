@@ -8,6 +8,7 @@ import Modules.ButtonModule;
 import Modules.ModuleHandler;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class MenuState extends GameState {
         buttons.add(new ButtonModule("start", "Start", Game.WIDTH / 2 - Width / 2, 40, Width, 40, "/gamestate set WORLD", gsm));
         buttons.add(new ButtonModule("options", "Options", Game.WIDTH / 2 - Width / 2, 100, Width, 40, "/gamestate set OPTIONS", gsm));
         buttons.add(new ButtonModule("credits", "Credits", Game.WIDTH / 2 - Width / 2, 160, Width, 40, "/gamestate set CREDITS", gsm));
-        buttons.add(new ButtonModule("logs", "Logs", Game.WIDTH / 2 - Width / 2, 220, Width, 40, "URLGITHUB", gsm));
+        buttons.add(new ButtonModule("logs", "Logs", Game.WIDTH / 2 - Width / 2, 220, Width, 40, "/gamestate set URLGITHUB", gsm));
         for (ButtonModule b: buttons) {
             ModuleHandler.buttons.add(b);
         }
@@ -62,6 +63,31 @@ public class MenuState extends GameState {
 
     @Override
     public void keyReleased(int k) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
 
     }
 }

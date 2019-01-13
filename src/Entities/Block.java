@@ -1,9 +1,11 @@
 package Entities;
 
+import Enums.BlockTypes;
+
 import java.awt.*;
 
 public class Block extends Entity {
-    Enum type;
+    public Enum type;
 
     public Block(int x, int y, int width, int height, Enum type) {
         super(x, y, width, height);
@@ -12,10 +14,18 @@ public class Block extends Entity {
 
     @Override
     public void render(Graphics2D g) {
-        g.setColor(Color.red);
+        //g.setColor(Color.red);
+        //g.fillRect((int)x,(int)y, width, height);
+        if(type == BlockTypes.STONE){
+            g.setColor(Color.darkGray);
+        }
+        if(type == BlockTypes.GRASS){
+            g.setColor(Color.green);
+        }
+        if(type == BlockTypes.DIRT){
+            g.setColor(new Color(165,42,42));
+        }
         g.fillRect((int)x,(int)y, width, height);
-        g.setColor(Color.darkGray);
-        g.drawRect((int)x,(int)y, width, height);
     }
 
     @Override
@@ -31,5 +41,9 @@ public class Block extends Entity {
     @Override
     public void keyReleased(int k) {
 
+    }
+
+    public Rectangle getBounds(){
+        return new Rectangle((int)x,(int)y,width,height);
     }
 }

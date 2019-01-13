@@ -8,9 +8,9 @@ import Main.Game;
 
 public class ExecuteModule {
     public static String execute(Entity entiy, Commander commander, String[] args, String command, GameStateManager gsm){
-        Game.sys(command);
+        //Game.sys(command);
         for (String s: args) {
-            Game.sys(s);
+            //Game.sys(s);
         }
         if(args[0].equals("gamestate")){
             if(commander.type.equals(CommanderTypes.CLIENT) || commander.type.equals(CommanderTypes.SERVER)){
@@ -25,7 +25,7 @@ public class ExecuteModule {
             if(commander.type.equals(CommanderTypes.PLAYER)){
                 if(!(args.length > 1)){
                     Player player = (Player) entiy;
-                    player.openCraftingTable();
+                    //player.openCraftingTable();
                 }
             } else {
                 return "You must be a player to use this command";

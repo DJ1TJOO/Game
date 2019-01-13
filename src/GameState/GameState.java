@@ -3,6 +3,7 @@ package GameState;
 import Entities.Camera;
 
 import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
 
 public abstract class GameState {
 
@@ -21,4 +22,14 @@ public abstract class GameState {
     public abstract void keyPressed(int k);
 
     public abstract void keyReleased(int k);
+
+    public abstract void mouseClicked(MouseEvent e);
+
+    public abstract void mouseEntered(MouseEvent e);
+
+    public abstract void mouseExited(MouseEvent e);
+
+    public abstract void mousePressed(MouseEvent e);
+
+    public abstract void mouseReleased(MouseEvent e);
 }
