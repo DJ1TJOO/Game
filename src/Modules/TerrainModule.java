@@ -6,17 +6,21 @@ import Enums.BlockTypes;
 import Main.Game;
 
 import java.awt.*;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
+import java.util.List;
+import java.util.logging.Handler;
 
 public class TerrainModule {
 
-    public static HashMap<Block, Integer> blocks = new HashMap<Block, Integer>();
-    static int skyheight = 120;
-    public static int size = 64;
-    public static Block[][] tilemap = new Block[1510][1210];
+    public int skyheight = 120;
+    public int size = 64;
+    public Block[][] tilemap = new Block[1510][1210];
+    public int generatingX = 150;
 
-    public static void generate() {
+    public TerrainModule() {
+    }
+
+    public void generate() {
         /*int id = 0;
         for (int blockX = -50; blockX < 150; blockX++) {
             Random r = new Random();
@@ -39,7 +43,7 @@ public class TerrainModule {
         //Game.sys(height + " height");
         //Game.sys(slope + " slope");
 
-        for (int i = 0; i < 150; i++) {
+        for (int i = 0; i < generatingX; i++) {
             height += slope;
             slope += (new Random().nextDouble() * STEP_CHANGE) * 2 - STEP_CHANGE;
 
@@ -62,18 +66,16 @@ public class TerrainModule {
             for (int y = HEIGHT_MAX; y < (100); y++) {
                 int xx = i * size;
                 int yy = (int)(y * size + skyheight * size);
-                Block block = new Block(xx, yy, size ,size, BlockTypes.STONE);
+                Block block = new Block(xx, yy, size ,size, BlockTypes.STONE, this);
                 // Game.sys("Tilemap: x:" + xx/size + " y:" + yy/size + " isSet");
                 tilemap[xx/size][yy/size] = block;
-                blocks.put(block, 1);
             }
             for (int y = 0; y < (HEIGHT_MAX + 20); y++) {
                 int xx = i * size;
                 int yy = (int)(y * size + (int)height * size + skyheight * size);
-                Block block = new Block(xx, yy, size ,size, BlockTypes.STONE);
+                Block block = new Block(xx, yy, size ,size, BlockTypes.STONE, this);
                 tilemap[xx/size][yy/size] = block;
                 //Game.sys("Tilemap: x:" + xx/size + " y:" + yy/size + " isSet");
-                blocks.put(block, 1);
             }
         }
 
@@ -88,34 +90,96 @@ public class TerrainModule {
         }
     }
 
-    public static void render(Graphics2D g, Camera cam){
-        for (Block block: blocks.keySet()) {
+    public void render(Graphics2D g, Camera cam){
+
+        for(Block[] blocks : tilemap){
+            for (Block block: blocks) {
+                if(block == null)
+                    continue;
+                if(block.getX() < cam.getX() + Game.GAME_WIDTH + size && block.getX() > cam.getX() - size){
+                    if(block.getY() < cam.getY() + size + Game.GAME_HEIGHT && block.getY() > cam.getY() - size){
+                        block.render(g);
+                    }
+                }
+            }
+        }
+
+        /*for(Iterator<Block> iterator = blocks.iterator(); iterator.hasNext();){
+            Block block = iterator.next();
             if(block.getX() < cam.getX() + Game.GAME_WIDTH + size && block.getX() > cam.getX() - size){
                 if(block.getY() < cam.getY() + size + Game.GAME_HEIGHT && block.getY() > cam.getY() - size){
                     block.render(g);
                 }
             }
+        }/*
+        synchronized (blocks){
+            for (Block block : blocks) {
+                if(block.getX() < cam.getX() + Game.GAME_WIDTH + size && block.getX() > cam.getX() - size){
+                    if(block.getY() < cam.getY() + size + Game.GAME_HEIGHT && block.getY() > cam.getY() - size){
+                            block.render(g);
+                    }
+                }
+            }
+        }*/
+    }
+    public void tick(Camera cam){
+
+        for(Block[] blocks : tilemap){
+            for (Block block: blocks) {
+                if(block == null)
+                    continue;
+                if(block.getX() < cam.getX() + Game.GAME_WIDTH + size && block.getX() > cam.getX() - size){
+                    if(block.getY() < cam.getY() + size + Game.GAME_HEIGHT && block.getY() > cam.getY() - size){
+                        block.tick();
+                    }
+                }
+            }
         }
+       /* for(Iterator<Block> iterator = blocks.iterator(); iterator.hasNext();){
+            Block block = iterator.next();
+            if(block.getX() < cam.getX() + Game.GAME_WIDTH + size && block.getX() > cam.getX() - size){
+                if(block.getY() < cam.getY() + size + Game.GAME_HEIGHT && block.getY() > cam.getY() - size){
+                    block.tick();
+                }
+            }
+        }/*
+        synchronized (blocks){
+            for (Block block : blocks) {
+                if(block.getX() < cam.getX() + Game.GAME_WIDTH + size && block.getX() > cam.getX() - size){
+                    if(block.getY() < cam.getY() + size + Game.GAME_HEIGHT && block.getY() > cam.getY() - size){
+                        block.tick();
+                    }
+                }
+            }
+        }*/
     }
 
-    public static int getTop(float x){
+    public int getTop(float x){
         Block currentTop = null;
         int currentY = 10000;
-        for (Block block: blocks.keySet()) {
-            if(block.getY() < currentY && block.getX() == x){
-                currentTop = block;
-                currentY = (int)block.getY();
+        for(Block[] blocks : tilemap){
+            for (Block block: blocks) {
+                if(block == null)
+                    continue;
+                if(block.getY() < currentY && block.getX() == x){
+                    currentTop = block;
+                    currentY = (int)block.getY();
+                }
             }
         }
         return currentY;
     }
-    public static Block getTopBlock(float x){
+    public Block getTopBlock(float x){
         Block currentTop = null;
         int currentY = 10000;
-        for (Block block: blocks.keySet()) {
-            if(block.getY() < currentY && block.getX() == x){
-                currentTop = block;
-                currentY = (int)block.getY();
+        for(Block[] blocks : tilemap){
+            for (Block block: blocks) {
+                if(block == null)
+                    continue;
+                if(block.getY() < currentY && block.getX() == x){
+                    currentTop = block;
+                    currentY = (int)block.getY();
+                }
             }
         }
         return currentTop;

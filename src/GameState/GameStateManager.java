@@ -51,7 +51,10 @@ public class GameStateManager {
         if (!(gameState[currentState] == null))
             gameState[currentState].tick();
     }
-
+    public void renderHud(Graphics2D g){
+        if (!(gameState[currentState] == null))
+            gameState[currentState].renderHud(g);
+    }
     public void render(Graphics2D g){
         if (!(gameState[currentState] == null))
             gameState[currentState].render(g);

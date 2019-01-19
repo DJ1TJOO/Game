@@ -20,6 +20,7 @@ public class World1 extends GameState {
     public static List<Player> players = new ArrayList<Player>();
     List<ButtonModule> buttons = new ArrayList<ButtonModule>();
     BackgoundModule bg;
+    TerrainModule tm;
 
     public World1(GameStateManager gsm, Camera cam) {
         this.gsm = gsm;
@@ -33,7 +34,8 @@ public class World1 extends GameState {
         for (ButtonModule b: buttons) {
             ModuleHandler.buttons.add(b);
         }
-        TerrainModule.generate();
+        tm = new TerrainModule();
+        tm.generate();
         int xPlayer = 0;
         int yPlayer = 0;
        /* for (int i = xPlayer - 32; i < (xPlayer + 32); i++) {
@@ -42,9 +44,9 @@ public class World1 extends GameState {
                 xPlayer = i;
             }
         }*/
-        yPlayer = TerrainModule.getTop(xPlayer);
+        yPlayer = tm.getTop(xPlayer);
         Game.sys(yPlayer + " y generated");
-        players.add(new Player(xPlayer,yPlayer - 120,50,120, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D, cam));
+        players.add(new Player(xPlayer,yPlayer - 120,50,120, KeyEvent.VK_W, KeyEvent.VK_S, KeyEvent.VK_A, KeyEvent.VK_D, KeyEvent.VK_E, cam, tm));
     }
 
     @Override
@@ -53,11 +55,17 @@ public class World1 extends GameState {
             ModuleHandler.buttons.remove(b);
         }
     }
+    @Override
+    public void renderHud(Graphics2D g) {
+        for (Player p : players) {
+            p.renderHud(g);
+        }
+    }
 
     @Override
     public void render(Graphics2D g) {
         bg.render(g);
-        TerrainModule.render(g, cam);
+        tm.render(g, cam);
         for (Player p : players) {
             p.render(g);
         }
@@ -68,6 +76,7 @@ public class World1 extends GameState {
 
     @Override
     public void tick() {
+        tm.tick(cam);
         for (Player p : players) {
             p.tick();
         }
@@ -92,9 +101,6 @@ public class World1 extends GameState {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        for (Player p: players) {
-            p.mouseClicked(e);
-        }
     }
 
     @Override
@@ -109,7 +115,9 @@ public class World1 extends GameState {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        for (Player p: players) {
+            p.mousePressed(e);
+        }
     }
 
     @Override

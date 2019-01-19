@@ -40,6 +40,11 @@ public class MenuState extends GameState {
     }
 
     @Override
+    public void renderHud(Graphics2D g) {
+
+    }
+
+    @Override
     public void render(Graphics2D g) {
         for (ButtonModule button : buttons) {
             button.render(g, cam);

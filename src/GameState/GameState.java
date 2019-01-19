@@ -15,6 +15,8 @@ public abstract class GameState {
 
     public abstract void unload();
 
+    public abstract void renderHud(Graphics2D g);
+
     public abstract void render(Graphics2D g);
 
     public abstract void tick();

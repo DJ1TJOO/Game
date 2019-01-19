@@ -32,6 +32,11 @@ public class Urlgithub extends GameState {
 
     }
 
+    @Override
+    public void renderHud(Graphics2D g) {
+
+    }
+
     public void render(Graphics2D g) {
 
     }

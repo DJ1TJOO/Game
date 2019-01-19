@@ -23,24 +23,25 @@ public class ModuleHandler {
     }
 
     public void mouseClicked(MouseEvent e) {
+        gsm.mouseClicked(e);
         for (ButtonModule b : buttons) {
             b.mouseClicked();
         }
     }
 
     public void mouseEntered(MouseEvent e) {
-
+        gsm.mouseEntered(e);
     }
 
     public void mouseExited(MouseEvent e) {
-
+        gsm.mouseExited(e);
     }
 
     public void mousePressed(MouseEvent e) {
-
+        gsm.mousePressed(e);
     }
 
     public void mouseReleased(MouseEvent e) {
-
+        gsm.mouseReleased(e);
     }
 }

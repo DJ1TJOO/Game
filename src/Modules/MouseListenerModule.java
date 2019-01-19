@@ -40,6 +40,15 @@ public class MouseListenerModule implements MouseListener {
     public void mouseReleased(MouseEvent e) {
         handler.mouseReleased(e);
     }
+    public static double mouseDistance(Point p){
+        Point pm = new Point(mx, my);
+        return p.distance(pm);
+    }
+
+    public static float mouseDistanceFloat(Point p){
+        Point pm = new Point(mx, my);
+        return (float)p.distance(pm);
+    }
 
     public static boolean mouseHover(int x, int y, int width, int height) {
         //if (state == GameStateManager.getStateI()) {

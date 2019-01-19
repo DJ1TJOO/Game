@@ -126,6 +126,8 @@ public class Game extends Canvas implements Runnable {
 
 		g.translate(camera.getX(), camera.getY());
 
+		gsm.renderHud(g);
+
 		g.dispose();
 		bs.show();
 	}
